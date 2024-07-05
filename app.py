@@ -20,8 +20,8 @@ def perform_registration():
     response = db.insert(name,email,password)
 
     if response:
-        return "Registration Successful"
+        return render_template('login.html', message='Registration Successful, Kindly Login to Proceed')
     else:
-        return "Email already exists"
+        return render_template('registration.html', message='Email Already Exists')
 
 app.run(debug=True)

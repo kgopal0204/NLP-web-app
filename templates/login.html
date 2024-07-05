@@ -10,6 +10,10 @@
 
     <h3>Login Here</h3>
 
+    {% if message %}
+        <p style="color:green"> {{ message }}</p>
+    {% endif %}
+
     <form>
         <label> Email </label><br>
         <input type = "email"><br><br>
