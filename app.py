@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from data import Database
 
 app = Flask(__name__)
@@ -23,5 +23,17 @@ def perform_registration():
         return render_template('login.html', message='Registration Successful, Kindly Login to Proceed')
     else:
         return render_template('registration.html', message='Email Already Exists')
+
+@app.route('/perform_login', methods=['post'])
+def perform_login():
+    email = request.form.get('user_email')
+    password = request.form.get('user_password')
+
+    response = db.search(email,password)
+
+    if response:
+        return "Welcome"
+    else:
+        return render_template('login.html', message='Incorrect Email/Password')
 
 app.run(debug=True)

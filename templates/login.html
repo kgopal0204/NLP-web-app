@@ -14,11 +14,11 @@
         <p style="color:green"> {{ message }}</p>
     {% endif %}
 
-    <form>
+    <form action="/perform_login", method="post">
         <label> Email </label><br>
-        <input type = "email"><br><br>
+        <input type = "email" name="user_email"><br><br>
         <label> Password </label><br>
-        <input type = "password"><br><br>
+        <input type = "password" name="user_password"><br><br>
         <input type = "submit">
     </form>
 
